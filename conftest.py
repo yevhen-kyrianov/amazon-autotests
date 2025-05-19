@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 @pytest.fixture
 def driver():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
+    options.add_argument("--headless")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-gpu")
@@ -16,7 +16,7 @@ def driver():
     options.add_argument("--disable-infobars")
     options.add_argument("--disable-browser-side-navigation")
     options.add_argument("--disable-features=VizDisplayCompositor")
-
+    options.add_argument("--user-data-dir=/tmp/chrome-profile")
 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     yield driver
