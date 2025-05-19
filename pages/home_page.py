@@ -35,9 +35,8 @@ class HomePage:
         sign_in_button.click()
 
     def hover_account_section(self):
-        element = self.driver.find_element(*self.account_section)
-        actions = ActionChains(self.driver)
-        actions.move_to_element(element).perform()
+        account_element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, "nav-link-accountList")))
+        ActionChains(self.driver).move_to_element(account_element).perform()
 
     def is_sign_in_button_displayed(self):
         return self.driver.find_element(*self.sign_in_button).is_displayed()
