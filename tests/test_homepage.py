@@ -18,12 +18,12 @@ from pages.home_page import HomePage
 import pytest
 
 
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
-    driver.quit()
+# @pytest.fixture
+# def driver():
+#     driver = webdriver.Chrome()
+#     driver.maximize_window()
+#     yield driver
+#     driver.quit()
 
 def test_amazon_home_page(driver):
     driver.get("https://www.amazon.ca/")

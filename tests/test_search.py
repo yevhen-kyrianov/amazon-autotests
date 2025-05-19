@@ -22,27 +22,27 @@ from pages.home_page import HomePage
 from selenium.webdriver.chrome.service import Service
 from pages.search_results_page import SearchPage
 
-@pytest.fixture
-def driver():
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
+# @pytest.fixture
+# def driver():
+#     options = webdriver.ChromeOptions()
+#     options.add_argument("--start-maximized")
+#     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
+#     options.add_experimental_option("excludeSwitches", ["enable-automation"])
+#     options.add_experimental_option('useAutomationExtension', False)
 
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
+#     service = Service(ChromeDriverManager().install())
+#     driver = webdriver.Chrome(service=service, options=options)
 
-    driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-        "source": """
-            Object.defineProperty(navigator, 'webdriver', {
-                get: () => undefined
-            })
-        """
-    })
+#     driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+#         "source": """
+#             Object.defineProperty(navigator, 'webdriver', {
+#                 get: () => undefined
+#             })
+#         """
+#     })
 
-    yield driver
-    driver.quit()
+#     yield driver
+#     driver.quit()
 
 
 def test_amazon_deals_page(driver):
