@@ -1,7 +1,7 @@
 import requests
 import pytest
 
-BASE_URL = "https://httpbin.org"  # простой сервис для демонстрации
+BASE_URL = "https://httpbin.org"
 
 @pytest.mark.api
 def test_get_status_code():
