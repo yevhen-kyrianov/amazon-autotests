@@ -69,6 +69,10 @@ Future Improvements
   Support for multiple browsers (Chrome, Firefox).
   Adding API testing examples.
 
+## API Tests
+
+Located in `tests/api/`, these are basic examples using `requests` to demonstrate API testing.
+
 Author
 Yevhen Kyrianov
 
